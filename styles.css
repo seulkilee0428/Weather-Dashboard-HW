@@ -1,0 +1,50 @@
+
+
+body {
+    font-family: "arial";
+}
+
+.card {
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+#search-history {
+    float: left;
+    justify-content: left;
+}
+
+.form-control {
+    padding:40px 20px;
+    margin: 5px;
+    display: block;
+      
+
+}
+.city-btn {
+    padding: 5px;
+    margin: 5px;
+    display: block;
+    width: 100%;
+}
+
+.uv-index {
+    color: #ee4f4f;
+}
+
+#five-day-weather {
+    display: flex;
+    position: relative;
+}
+
+.display-fiveday {
+    background-color: #ffd9ec;
+    border-radius: 10px;
+    width: 80px;
+    height: 180px;
+    padding: 5px;
+    margin: 10px;
+    text-align: center;
+   
+}
+
