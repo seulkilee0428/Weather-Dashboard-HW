@@ -51,6 +51,8 @@ $(document).ready(function () {
             var p2 = $("<p>").text(cityMain);
             currentWeather.append(p2);
 
+            // issue : revisit here. API call only displays over 200F all cities
+
             var temperature = response.main.temp;
             var p3 = $("<p>").text("Temperature: " + temperature + "°F");
             currentWeather.append(p3);
