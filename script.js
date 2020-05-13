@@ -3,19 +3,7 @@ $(document).ready(function () {
     var cityList = [];
     var m = moment();
 
-    function searchHistory() {
-        $("#search-history").empty();
 
-        for (var i = 0; i < cityList.length; i++) {
-            var searchButton = $("<button>");
-            searchButton.addClass("city-btn");
-            searchButton.attr("data-name", cityList[i]);
-            searchButton.text(cityList[i]);
-            $("#search-history").append(searchButton);
-        }
-
-        getWeather(cityList[cityList.length - 1])
-    }
 
 
     $("#cityhistory").on("click", function (event) {
@@ -30,6 +18,15 @@ $(document).ready(function () {
             searchHistory();
         }
     });
+
+
+    function displayWeather(city) {
+        if (typeof city === 'object') {
+            city = $(this).attr("data-name");
+        }
+        currentWeather(city);
+        fiveDayForecast(city);
+    };
 
     // display current weather
     function currentWeather(city) {
@@ -88,18 +85,25 @@ $(document).ready(function () {
                 })
             }
             uvIndex();
+
         });
-    }
+    };
 
+    function searchHistory() {
+        $("#search-history").empty();
 
-
-    function displayWeather(city) {
-        if (typeof city === 'object') {
-            city = $(this).attr("data-name");
+        for (var i = 0; i < cityList.length; i++) {
+            var searchButton = $("<button>");
+            searchButton.addClass("city-btn");
+            searchButton.attr("data-name", cityList[i]);
+            searchButton.text(cityList[i]);
+            $("#search-history").append(searchButton);
         }
-        currentWeather(city);
-        fiveDayForecast(city);
-    }
+
+        displayWeather(cityList[cityList.length - 1]);
+    };
+
+
 
     // Display five day forecast
     function fiveDayForecast(city) {
@@ -164,12 +168,13 @@ $(document).ready(function () {
                     dateDisplay.append(eachDateDisplay);
                     $("#day-" + (i + 1)).append(eachDateDisplay);
                 }
-            }
+            };
             displayDates();
         });
 
-    }
+    };
 
-    $(document).on("click", ".city-btn", displayWeather);
+
+    $(document).on("click", ".btn-primary", displayWeather);
 
 });

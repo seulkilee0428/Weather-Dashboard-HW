@@ -4,24 +4,30 @@ body {
     font-family: "arial";
 }
 
+.col-md-4 {
+    padding: 10px;
+    text-align: center;
+    color: grey;
+}
+
+
 .card {
     padding: 10px;
     margin-bottom: 10px;
 }
 
 #search-history {
-    float: left;
-    justify-content: left;
+    padding: 5px;
+    width: 100%;
 }
 
 .form-control {
     padding:40px 20px;
     margin: 5px;
     display: block;
-      
-
 }
-.city-btn {
+
+.btn-primary{
     padding: 5px;
     margin: 5px;
     display: block;
