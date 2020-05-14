@@ -5,7 +5,6 @@ $(document).ready(function () {
 
 
 
-
     $("#cityhistory").on("click", function (event) {
         event.preventDefault();
 
@@ -18,6 +17,20 @@ $(document).ready(function () {
             searchHistory();
         }
     });
+
+    function searchHistory() {
+        $("#search-history").empty();
+
+        for (var i = 0; i < cityList.length; i++) {
+            var searchButton = $("<button>");
+            searchButton.addClass("city-btn");
+            searchButton.attr("data-name", cityList[i]);
+            searchButton.text(cityList[i]);
+            $("#search-history").append(searchButton);
+        }
+
+        displayWeather(cityList[cityList.length - 1]);
+    };
 
 
     function displayWeather(city) {
@@ -88,21 +101,6 @@ $(document).ready(function () {
 
         });
     };
-
-    function searchHistory() {
-        $("#search-history").empty();
-
-        for (var i = 0; i < cityList.length; i++) {
-            var searchButton = $("<button>");
-            searchButton.addClass("city-btn");
-            searchButton.attr("data-name", cityList[i]);
-            searchButton.text(cityList[i]);
-            $("#search-history").append(searchButton);
-        }
-
-        displayWeather(cityList[cityList.length - 1]);
-    };
-
 
 
     // Display five day forecast
@@ -175,6 +173,6 @@ $(document).ready(function () {
     };
 
 
-    $(document).on("click", ".btn-primary", displayWeather);
+    $(document).on("click", ".city-btn", displayWeather);
 
 });

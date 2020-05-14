@@ -1,7 +1,7 @@
 
 
 body {
-    font-family: "arial";
+    font-family: 'Balsamiq Sans', cursive;
 }
 
 .col-md-4 {
@@ -17,9 +17,15 @@ body {
 }
 
 #search-history {
-    padding: 5px;
     width: 100%;
+    text-align: center;
+    font-size: 22px;
 }
+
+.city-btn {
+    background-color: #ffd9ec;
+}
+
 
 .form-control {
     padding:40px 20px;
